@@ -1,0 +1,132 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>BigQueryClientWeb</groupId>
+  <artifactId>BigQueryClientWeb</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+
+	<repositories>
+		<repository>
+			<id>googleapis</id>
+			<url>https://google-api-client-libraries.appspot.com/mavenrepo</url>
+		</repository>
+<!-- 		<repository> -->
+<!-- 			<id>prime-repo</id> -->
+<!-- 			<name>PrimeFaces Maven Repository</name> -->
+<!-- 			<url>http://repository.primefaces.org</url> -->
+<!-- 			<layout>default</layout> -->
+<!-- 		</repository> -->
+	</repositories>
+	<properties>
+		<spring.version>3.1.1.RELEASE</spring.version>
+	</properties>
+    <dependencies>
+<!--         <dependency> -->
+<!--             <groupId>com.google.apis</groupId> -->
+<!--             <artifactId>google-api-services-bigquery</artifactId> -->
+<!--             <version>v2-rev153-1.18.0-rc</version> -->
+<!--         </dependency> -->
+<!--         <dependency> -->
+<!--             <groupId>com.google.oauth-client</groupId> -->
+<!--             <artifactId>google-oauth-client</artifactId> -->
+<!--             <version>1.18.0-rc</version> -->
+<!--         </dependency> -->
+<!--         <dependency> -->
+<!--             <groupId>com.google.http-client</groupId> -->
+<!--             <artifactId>google-http-client-jackson2</artifactId> -->
+<!--             <version>1.18.0-rc</version> -->
+<!--         </dependency> -->
+        
+        <dependency>  
+    <groupId>org.primefaces</groupId>  
+    <artifactId>primefaces</artifactId>  
+    <version>5.0</version>  
+</dependency> 
+
+<dependency> 
+     <groupId>org.springframework</groupId> 
+     <artifactId>spring-aspects</artifactId> 
+     <version>3.1.2.RELEASE</version> 
+</dependency>
+<dependency>
+	<groupId>javax.el</groupId>
+	<artifactId>el-api</artifactId>
+	<version>2.2</version>
+</dependency>
+
+<dependency>
+		  <groupId>com.sun.faces</groupId>
+		  <artifactId>jsf-api</artifactId>
+		  <version>2.1.6</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>com.sun.faces</groupId>
+		  <artifactId>jsf-impl</artifactId>
+		  <version>2.1.6</version>
+		</dependency>
+			
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>	
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+			
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+            
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        
+        <dependency>
+	<groupId>org.aspectj</groupId>
+	<artifactId>aspectjtools</artifactId>
+	<version>1.6.2</version>
+</dependency>
+
+<dependency>
+	<groupId>org.apache.poi</groupId>
+	<artifactId>poi</artifactId>
+	<version>3.5-beta3</version>
+</dependency>
+<dependency>
+	<groupId>com.lowagie</groupId>
+	<artifactId>itext</artifactId>
+	<version>2.0.7</version>
+</dependency>
+
+            
+    </dependencies>
+  
+</project>

@@ -1,0 +1,175 @@
+<html xmlns="http://www.w3.org/1999/xhtml"  
+     xmlns:h="http://java.sun.com/jsf/html"      
+      xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:p="http://primefaces.org/ui">  
+ <h:head><title>Welcome to OTV_JSF_Spring_Hibernate_Project</title>
+ <style type="text/css">
+.ui-widget,
+        .ui-widget .ui-widget {
+               font-size: 12px !important;
+              
+         }
+
+</style>
+
+<script>
+
+
+var millisec = 0;
+var seconds = 0;
+var timer;
+
+function display(){
+//alert("test");
+  if (millisec>=9){
+     millisec=0
+     seconds+=1
+  }
+  else
+     millisec+=1
+     document.getElementById('form:txt_count').innerHTML = seconds + "." + millisec + " sn";
+     timer = setTimeout("display()",100);
+  }
+
+function starttimer() {
+	
+  if (timer > 0) {
+	return;
+  }
+  display();	
+}
+function stoptimer() {
+  clearTimeout(timer);
+  timer = 0;
+}
+
+function startstoptimer() {
+  //if (timer > 0) {
+     clearTimeout(timer);
+     timer = 0;
+     resettimer();
+     display();
+  //} else {
+  //   display();
+ // }
+}
+
+function resettimer() {
+	stoptimer();
+	millisec = 0;
+	seconds = 0;
+}
+
+
+
+</script>
+
+ </h:head>  
+ <h:body>
+     <h:form id="form">      
+	  
+<p:layout fullPage="true">  
+  
+    <p:layoutUnit position="north" size="100" header="Top" resizable="true" closable="true" collapsible="true" rendered="false">  
+
+    </p:layoutUnit>  
+  
+    <p:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true" rendered="false">  
+        <h:outputText value="South unit content." />  
+    </p:layoutUnit>  
+  
+    <p:layoutUnit position="west" size="300" header="Left" resizable="true" closable="true" collapsible="true">  
+       	
+       	  <p:commandButton action="#{viewBean.showTableList}" update="dataTable2" value="Tablo Göster"></p:commandButton>	
+          <p:dataTable id="dataTable2" value="#{viewBean.tableList}" paginator="true" rows="10" var="item" paginatorPosition="bottom" paginatorAlwaysVisible="false">
+      	 	<p:column headerText="Tablo ismi">
+        		<h:outputText value="#{item}" />
+   			 </p:column>
+   			<p:column style="width:32px">
+           <p:rowEditor />
+       	</p:column>
+          </p:dataTable>
+          
+          <br></br>
+          <p:dataTable id="dataTable3" value="#{viewBean.readyReportList}" paginator="true" rows="10" var="item" paginatorPosition="bottom" paginatorAlwaysVisible="false">
+      	 	<f:facet name="header">
+            		Hazır Raporlar
+       		 </f:facet>
+      	 	<p:column headerText="Rapor İsmi">
+        		<h:outputText value="#{item.name}" />
+   			 </p:column>
+   			 <p:column headerText="Link">
+        		<h:outputLink value="#{item.link}" target="_blank">
+        			<h:outputText value="Göster" />
+        		</h:outputLink>
+   			 </p:column>
+   			 <p:column headerText="sql">
+        		<h:outputText value="" />
+   			 </p:column>
+   		 </p:dataTable>
+	  
+	 
+	    
+    </p:layoutUnit>  
+  
+    <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop" rendered="false">  
+        
+    </p:layoutUnit>  
+  
+    <p:layoutUnit position="center">  
+     <p:growl id="growl" showDetail="true" sticky="true" />  
+      <p:remoteCommand name="rc" update="result" actionListener="#{viewBean.resetMessage}" />
+     <p:panel id="basic" header="Sorgu Parametreleri" footer="Movie Details">
+        <h:panelGrid columns="2" >
+             <h:inputTextarea rows="10" cols="100" value="#{viewBean.query}" ></h:inputTextarea>
+             
+      		 <h:panelGrid columns="1"> 
+      		 	<p:commandButton action="#{viewBean.getConnection}" onclick="startstoptimer();rc();" update="result,dataTable" value="Query"></p:commandButton>
+      				<h:panelGrid columns="2">
+      				 	<h:outputLabel  id="txt_count" value=""/>
+      		 			<h:outputLabel value="#{viewBean.resultMessage}" id="result"></h:outputLabel> 
+      				</h:panelGrid>
+      		 </h:panelGrid>	
+        </h:panelGrid>
+    </p:panel>
+     
+      
+     
+      <p:panel id="basic2" header="Sonuç" >
+      
+
+    <h:commandLink>
+        <p:graphicImage value="/images/excel.png" />
+        <p:dataExporter type="xls" target="dataTable" fileName="cars" pageOnly="false"/>
+    </h:commandLink>
+ 
+    <h:commandLink>
+        <p:graphicImage value="/images/pdf.png" />
+        <p:dataExporter type="pdf" target="dataTable" fileName="cars" pageOnly="false" />
+    </h:commandLink>
+ 
+    <h:commandLink>
+        <p:graphicImage value="/images/csv.png" />
+        <p:dataExporter type="csv" target="dataTable" fileName="cars" pageOnly="false" />
+    </h:commandLink>
+ 
+    <h:commandLink>
+        <p:graphicImage value="/images/xml.png" />
+        <p:dataExporter type="xml" target="dataTable" fileName="cars" pageOnly="false" />
+    </h:commandLink>
+      
+      
+      <p:dataTable id="dataTable" binding="#{viewBean.dataTable}" value="#{viewBean.dataModel}" paginator="true" rows="10" var="item" paginatorPosition="bottom" paginatorAlwaysVisible="false">
+      	 
+      	 
+      
+      </p:dataTable>
+     </p:panel>
+      
+    </p:layoutUnit>  
+  
+</p:layout>  
+                   
+     </h:form>      
+</h:body>
+</html> 

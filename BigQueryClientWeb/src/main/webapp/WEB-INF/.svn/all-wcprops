@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/3/OnlineSlide/src/main/webapp/WEB-INF
+END
+faces-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/3/OnlineSlide/src/main/webapp/WEB-INF/faces-config.xml
+END
+applicationContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/3/OnlineSlide/src/main/webapp/WEB-INF/applicationContext.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/3/OnlineSlide/src/main/webapp/WEB-INF/web.xml
+END
